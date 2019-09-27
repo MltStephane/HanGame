@@ -76,6 +76,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6AC54265233DF69B0073F478 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6AC54266233DF6B80073F478 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6AC54267233DF6BE0073F478 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8A275363233DF4B200B2E41C = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +120,9 @@
 		8A27536E233DF4B200B2E41C /* HanGame */ = {
 			isa = PBXGroup;
 			children = (
+				6AC54267233DF6BE0073F478 /* Controllers */,
+				6AC54266233DF6B80073F478 /* Views */,
+				6AC54265233DF69B0073F478 /* Models */,
 				8A27536F233DF4B200B2E41C /* AppDelegate.swift */,
 				8A275371233DF4B200B2E41C /* ViewController.swift */,
 				8A275373233DF4B200B2E41C /* Main.storyboard */,
