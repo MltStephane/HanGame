@@ -26,7 +26,7 @@ class GuessManager {
                     let decoder = JSONDecoder()
                     let guessApi = try decoder.decode(GuessApi.self, from: data)
                     if let name = guessApi.name, let image = guessApi.image {
-                        seal.fulfill(Guess(name : name, image: image, found: false))
+                        seal.fulfill(Guess(name : name.uppercased(), image: image, found: false))
                     }
                     else {
                         seal.reject(NSError(domain: "", code: 1, userInfo: nil))

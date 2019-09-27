@@ -61,20 +61,14 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="t3N-xz-2D4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKT-B8-Zo3">
-                                <rect key="frame" x="64" y="148" width="247" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="c7q-w7-xQe"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4C-1B-NWa">
-                                <rect key="frame" x="187.5" y="308" width="0.0" height="0.0"/>
+                                <rect key="frame" x="187.5" y="228" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Pc-Qh-cjy">
-                                <rect key="frame" x="175" y="372" width="25" height="30"/>
+                                <rect key="frame" x="175" y="292" width="25" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -82,26 +76,33 @@
                                     <action selector="inputAction:" destination="xjv-AO-sNl" eventType="editingDidEnd" id="NKk-hc-012"/>
                                 </connections>
                             </textField>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvG-Ed-Zdg">
+                                <rect key="frame" x="64" y="84" width="247" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="cvZ-Le-0Jl"/>
+                                </constraints>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Iy2-PF-FpT" firstAttribute="trailing" secondItem="xKT-B8-Zo3" secondAttribute="trailing" constant="64" id="0Oh-8t-Qt0"/>
-                            <constraint firstItem="xKT-B8-Zo3" firstAttribute="top" secondItem="Iy2-PF-FpT" secondAttribute="top" constant="128" id="4hp-AP-4B8"/>
                             <constraint firstItem="eWf-dd-2iv" firstAttribute="top" secondItem="Iy2-PF-FpT" secondAttribute="top" constant="16" id="MJg-dN-EMl"/>
-                            <constraint firstItem="xKT-B8-Zo3" firstAttribute="leading" secondItem="Iy2-PF-FpT" secondAttribute="leading" constant="64" id="QOL-ag-BCY"/>
+                            <constraint firstItem="vvG-Ed-Zdg" firstAttribute="top" secondItem="Iy2-PF-FpT" secondAttribute="top" constant="64" id="OJn-Wh-3JV"/>
+                            <constraint firstItem="Iy2-PF-FpT" firstAttribute="trailing" secondItem="vvG-Ed-Zdg" secondAttribute="trailing" constant="64" id="Sxf-gU-ATd"/>
                             <constraint firstItem="6Pc-Qh-cjy" firstAttribute="top" secondItem="o4C-1B-NWa" secondAttribute="bottom" constant="64" id="YI4-jS-sXH"/>
                             <constraint firstItem="o4C-1B-NWa" firstAttribute="centerX" secondItem="xa1-Us-5Td" secondAttribute="centerX" id="cDj-qC-gwh"/>
-                            <constraint firstItem="xKT-B8-Zo3" firstAttribute="centerX" secondItem="xa1-Us-5Td" secondAttribute="centerX" id="eo8-jZ-5uF"/>
-                            <constraint firstItem="o4C-1B-NWa" firstAttribute="top" secondItem="xKT-B8-Zo3" secondAttribute="bottom" constant="32" id="kvB-g5-jTr"/>
+                            <constraint firstItem="vvG-Ed-Zdg" firstAttribute="leading" secondItem="Iy2-PF-FpT" secondAttribute="leading" constant="64" id="gP8-VE-5gw"/>
                             <constraint firstItem="eWf-dd-2iv" firstAttribute="leading" secondItem="Iy2-PF-FpT" secondAttribute="leading" constant="16" id="n1J-ba-0rG"/>
+                            <constraint firstItem="o4C-1B-NWa" firstAttribute="top" secondItem="vvG-Ed-Zdg" secondAttribute="bottom" constant="16" id="ona-X4-As4"/>
                             <constraint firstItem="Iy2-PF-FpT" firstAttribute="trailing" secondItem="eWf-dd-2iv" secondAttribute="trailing" constant="310" id="rpY-KI-dGO"/>
+                            <constraint firstItem="vvG-Ed-Zdg" firstAttribute="centerX" secondItem="xa1-Us-5Td" secondAttribute="centerX" id="uCv-Te-Qtr"/>
                             <constraint firstItem="6Pc-Qh-cjy" firstAttribute="centerX" secondItem="xa1-Us-5Td" secondAttribute="centerX" id="zqb-Ja-wyh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iy2-PF-FpT"/>
                     </view>
                     <connections>
-                        <outlet property="imageController" destination="xKT-B8-Zo3" id="2SK-iA-m7k"/>
                         <outlet property="inputController" destination="6Pc-Qh-cjy" id="o05-CW-guB"/>
+                        <outlet property="webViewController" destination="vvG-Ed-Zdg" id="L7x-WW-gz7"/>
                         <outlet property="wordController" destination="o4C-1B-NWa" id="0g5-wX-gnY"/>
                     </connections>
                 </viewController>
@@ -149,6 +150,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xA3-py-3Iv"/>
                     </view>
+                    <connections>
+                        <outlet property="tableController" destination="8pa-AJ-Ycz" id="7aK-I4-4nD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjE-Xf-ODM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
