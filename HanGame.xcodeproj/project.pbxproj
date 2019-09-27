@@ -79,6 +79,8 @@
 		6AC54265233DF69B0073F478 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8A275379233DF4B300B2E41C /* Assets.xcassets */,
+				8A275376233DF4B200B2E41C /* HanGame.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,6 +88,8 @@
 		6AC54266233DF6B80073F478 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8A275373233DF4B200B2E41C /* Main.storyboard */,
+				8A27537B233DF4B300B2E41C /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -93,6 +97,8 @@
 		6AC54267233DF6BE0073F478 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8A275371233DF4B200B2E41C /* ViewController.swift */,
+				8A27536F233DF4B200B2E41C /* AppDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -123,13 +129,7 @@
 				6AC54267233DF6BE0073F478 /* Controllers */,
 				6AC54266233DF6B80073F478 /* Views */,
 				6AC54265233DF69B0073F478 /* Models */,
-				8A27536F233DF4B200B2E41C /* AppDelegate.swift */,
-				8A275371233DF4B200B2E41C /* ViewController.swift */,
-				8A275373233DF4B200B2E41C /* Main.storyboard */,
-				8A275379233DF4B300B2E41C /* Assets.xcassets */,
-				8A27537B233DF4B300B2E41C /* LaunchScreen.storyboard */,
 				8A27537E233DF4B300B2E41C /* Info.plist */,
-				8A275376233DF4B200B2E41C /* HanGame.xcdatamodeld */,
 			);
 			path = HanGame;
 			sourceTree = "<group>";
