@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GameController: UIViewController {
     
@@ -14,9 +15,11 @@ class GameController: UIViewController {
     @IBOutlet weak var inputController: UITextField!
     @IBOutlet weak var wordController: UILabel!
     @IBOutlet weak var lettersTriedController: UILabel!
+    @IBOutlet weak var imageController: UIImageView!
     
     var guess = Guess()
     var letters: [Character:Bool] = ["A": false, "B": false, "C": false, "D": false, "E": false, "F": false, "G": false, "H": false, "I": false, "J": false, "K": false, "L": false, "M": false, "N": false, "O": false, "P": false, "Q": false, "R": false, "S": false, "T": false, "U": false, "V": false, "W": false, "X": false, "Y": false, "Z": false]
+    var life = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +33,14 @@ class GameController: UIViewController {
             self.guess.image = g.image
             self.guess.found = g.found
             self.webViewController.loadRequest(URLRequest(url: URL(string: g.image)!))
-            self.setName()
             self.lettersTriedController.text = "Letters you tried :\n"
+            self.life = 8
+            self.setImage()
+            self.inputController.becomeFirstResponder()
+            for letter in self.letters.keys {
+                self.letters[letter] = false
+            }
+            self.setName()
         }
     }
     
@@ -47,16 +56,52 @@ class GameController: UIViewController {
         }
     }
     
+    func setImage() {
+        imageController.image = UIImage(named: "pendu_\(life)")!
+    }
+    
     
     @IBAction func inputAction(_ sender: Any) {
         if inputController.text!.count == 1
-        && letters.keys.contains(Character(inputController.text!))
-        && letters[Character(inputController.text!)] == false {
+            && letters.keys.contains(Character(inputController.text!))
+            && letters[Character(inputController.text!)] == false {
             letters[Character(inputController.text!)] = true
             lettersTriedController.text = (lettersTriedController.text ?? "") + inputController.text! + " "
+            if !guess.name.contains(Character(inputController.text!)) {
+                life -= 1
+            }
         }
         inputController.text = ""
         setName()
+        setImage()
+        
+        checkWinLose()
+        saveSuccess()
+    }
+    
+    func saveSuccess() {
+        let successGuess = GuessDB(context: AppDelegate.viewContext)
+        
+        successGuess.name = guess.name
+        successGuess.image = guess.image
+        successGuess.found = true
+        
+        do {
+            try AppDelegate.viewContext.save()
+        }catch {
+            print("oups fail")
+        }
+    }
+    
+    func checkWinLose() {
+        if !wordController.text!.contains("_") {
+            setGuess()
+        }
+        else if life == 0 {
+            print(guess.name)
+            self.performSegue(withIdentifier: "scoreViewSegue", sender: nil)
+        }
     }
 }
+
 
