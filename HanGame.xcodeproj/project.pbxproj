@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F34B0188147FB5FDEB7381A /* Pods_HanGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEC4AAC9BA70D90761FEFA5 /* Pods_HanGame.framework */; };
 		2B1ECCEBD1A4BE448D3798C6 /* Pods_HanGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3157587116451AB7F84E8116 /* Pods_HanGameUITests.framework */; };
+		6A1ECBDF2344E67000748258 /* CreditsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1ECBDE2344E67000748258 /* CreditsController.swift */; };
 		6AC54269233DFC140073F478 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC54268233DFC140073F478 /* GameController.swift */; };
 		6AC5426B233E0A410073F478 /* GuessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC5426A233E0A410073F478 /* GuessManager.swift */; };
 		6AC5426D233E0ACF0073F478 /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC5426C233E0ACF0073F478 /* Guess.swift */; };
@@ -48,6 +49,7 @@
 		0CEC4AAC9BA70D90761FEFA5 /* Pods_HanGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HanGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3157587116451AB7F84E8116 /* Pods_HanGameUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HanGameUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F9971C35EFB5B701843F0B /* Pods-HanGameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HanGameUITests.release.xcconfig"; path = "Target Support Files/Pods-HanGameUITests/Pods-HanGameUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6A1ECBDE2344E67000748258 /* CreditsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsController.swift; sourceTree = "<group>"; };
 		6AC54268233DFC140073F478 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		6AC5426A233E0A410073F478 /* GuessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessManager.swift; sourceTree = "<group>"; };
 		6AC5426C233E0ACF0073F478 /* Guess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 				8A275373233DF4B200B2E41C /* Main.storyboard */,
 				8A27537B233DF4B300B2E41C /* LaunchScreen.storyboard */,
 				6AC54270233E16730073F478 /* ScoreCell.xib */,
-				6AC54272233E367F0073F478 /* ScoreCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,10 +129,12 @@
 		6AC54267233DF6BE0073F478 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6AC54272233E367F0073F478 /* ScoreCell.swift */,
 				8A275371233DF4B200B2E41C /* ViewController.swift */,
 				8A27536F233DF4B200B2E41C /* AppDelegate.swift */,
 				6AC54268233DFC140073F478 /* GameController.swift */,
 				6AC5426E233E128B0073F478 /* ListController.swift */,
+				6A1ECBDE2344E67000748258 /* CreditsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				8A275370233DF4B200B2E41C /* AppDelegate.swift in Sources */,
 				6AC5426D233E0ACF0073F478 /* Guess.swift in Sources */,
 				6AC54273233E367F0073F478 /* ScoreCell.swift in Sources */,
+				6A1ECBDF2344E67000748258 /* CreditsController.swift in Sources */,
 				6AC5426F233E128B0073F478 /* ListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

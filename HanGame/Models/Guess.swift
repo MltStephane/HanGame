@@ -21,7 +21,28 @@ class Guess {
         self.found = found
     }
     
-    static func getSuccessGuess() -> [Guess]{
+    static func getSuccessGuess() -> Int{
+        
+        var res = 0
+        
+        do {
+            let request: NSFetchRequest<GuessDB> = GuessDB.fetchRequest()
+            let guesses = try AppDelegate.viewContext.fetch(request)
+            
+            for guess in guesses {
+                if guess.found == true {
+                    res += 1
+                }
+            }
+        }
+        catch {
+            print("Oups on a pas vraiment réussi a récupérer les valeurs ...")
+        }
+        
+        return res
+    }
+    
+    static func getGuesses() -> [Guess]{
         
         var listGuesses = [Guess]()
         
@@ -30,9 +51,7 @@ class Guess {
             let guesses = try AppDelegate.viewContext.fetch(request)
             
             for guess in guesses {
-                if guess.found == true {
-                    listGuesses.append(Guess(name: guess.name!, image: guess.image!, found: true))
-                }
+                listGuesses.append(Guess(name: guess.name!, image: guess.image!, found: guess.found))
             }
         }
         catch {

@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="410" height="114.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agr-Nv-tPC">
+                    <webView contentMode="center" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Agr-Nv-tPC">
                         <rect key="frame" x="16" y="12.5" width="107" height="90"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -26,22 +26,33 @@
                             <constraint firstAttribute="height" constant="90" id="yfa-zT-spi"/>
                         </constraints>
                     </webView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l8-F9-Icy">
-                        <rect key="frame" x="139" y="47" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l8-F9-Icy">
+                        <rect key="frame" x="139" y="47" width="215" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wcS-T5-z9w">
+                        <rect key="frame" x="362" y="37.5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Lhm-W8-4EK"/>
+                            <constraint firstAttribute="width" constant="40" id="tgQ-J3-JIu"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="4l8-F9-Icy" firstAttribute="leading" secondItem="Agr-Nv-tPC" secondAttribute="trailing" constant="16" id="0Rj-vu-lTV"/>
+                    <constraint firstItem="wcS-T5-z9w" firstAttribute="centerY" secondItem="ZRQ-GX-Z8H" secondAttribute="centerY" id="3a9-Y1-gQQ"/>
+                    <constraint firstItem="4l8-F9-Icy" firstAttribute="top" secondItem="ZRQ-GX-Z8H" secondAttribute="topMargin" constant="36" id="Axl-g5-JBF"/>
                     <constraint firstItem="Agr-Nv-tPC" firstAttribute="leading" secondItem="ZRQ-GX-Z8H" secondAttribute="leading" constant="16" id="BpQ-Uc-WRe"/>
-                    <constraint firstItem="4l8-F9-Icy" firstAttribute="leading" secondItem="Agr-Nv-tPC" secondAttribute="trailing" constant="16" id="DSD-lv-1ky"/>
-                    <constraint firstItem="4l8-F9-Icy" firstAttribute="centerY" secondItem="ZRQ-GX-Z8H" secondAttribute="centerY" id="j67-U3-hoU"/>
-                    <constraint firstItem="4l8-F9-Icy" firstAttribute="top" secondItem="ZRQ-GX-Z8H" secondAttribute="topMargin" constant="36" id="sXO-9Q-nay"/>
+                    <constraint firstAttribute="trailing" secondItem="wcS-T5-z9w" secondAttribute="trailing" constant="8" id="LtD-kW-oL9"/>
+                    <constraint firstItem="wcS-T5-z9w" firstAttribute="leading" secondItem="4l8-F9-Icy" secondAttribute="trailing" constant="8" id="e5r-x1-fOk"/>
+                    <constraint firstItem="4l8-F9-Icy" firstAttribute="centerY" secondItem="Agr-Nv-tPC" secondAttribute="centerY" id="rgd-1P-2GQ"/>
                     <constraint firstItem="Agr-Nv-tPC" firstAttribute="centerY" secondItem="ZRQ-GX-Z8H" secondAttribute="centerY" id="vsi-Oa-JxG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="foundController" destination="wcS-T5-z9w" id="kS1-Y3-sXD"/>
                 <outlet property="nameController" destination="4l8-F9-Icy" id="dPn-xX-Dd0"/>
                 <outlet property="webViewController" destination="Agr-Nv-tPC" id="k1g-lj-YoY"/>
             </connections>

@@ -13,5 +13,6 @@ class ScoreCell: UITableViewCell {
     
     @IBOutlet weak var nameController: UILabel!
     @IBOutlet weak var webViewController: UIWebView!
+    @IBOutlet weak var foundController: UIImageView!
     
 }

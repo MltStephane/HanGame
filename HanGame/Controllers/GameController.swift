@@ -23,10 +23,14 @@ class GameController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setGuess()
+        deleteData()
+        self.setGuess(resetLife: true)
     }
     
-    func setGuess() {
+    func setGuess(resetLife: Bool) {
+        for letter in self.letters.keys {
+            self.letters[letter] = false
+        }
         _ = GuessManager.getRandomGuess().done {
             (g) in
             self.guess.name = g.name
@@ -34,13 +38,13 @@ class GameController: UIViewController {
             self.guess.found = g.found
             self.webViewController.loadRequest(URLRequest(url: URL(string: g.image)!))
             self.lettersTriedController.text = "Letters you tried :\n"
-            self.life = 8
+            if resetLife {
+                self.life = 8
+            }
             self.setImage()
             self.inputController.becomeFirstResponder()
-            for letter in self.letters.keys {
-                self.letters[letter] = false
-            }
             self.setName()
+            print(self.guess.name)
         }
     }
     
@@ -61,7 +65,7 @@ class GameController: UIViewController {
     }
     
     
-    @IBAction func inputAction(_ sender: Any) {
+    @IBAction func inputAction(_ sender: UITextInput) {
         if inputController.text!.count == 1
             && letters.keys.contains(Character(inputController.text!))
             && letters[Character(inputController.text!)] == false {
@@ -70,21 +74,21 @@ class GameController: UIViewController {
             if !guess.name.contains(Character(inputController.text!)) {
                 life -= 1
             }
+            
+            setName()
+            setImage()
+            
+            checkWinLose()
         }
         inputController.text = ""
-        setName()
-        setImage()
-        
-        checkWinLose()
-        saveSuccess()
     }
     
-    func saveSuccess() {
+    func saveSuccess(found: Bool) {
         let successGuess = GuessDB(context: AppDelegate.viewContext)
         
         successGuess.name = guess.name
         successGuess.image = guess.image
-        successGuess.found = true
+        successGuess.found = found
         
         do {
             try AppDelegate.viewContext.save()
@@ -95,13 +99,43 @@ class GameController: UIViewController {
     
     func checkWinLose() {
         if !wordController.text!.contains("_") {
-            setGuess()
+            saveSuccess(found: true)
+            setGuess(resetLife: true)
         }
         else if life == 0 {
-            print(guess.name)
+            saveSuccess(found: false)
             self.performSegue(withIdentifier: "scoreViewSegue", sender: nil)
         }
     }
+    
+    func deleteData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuessDB")
+        
+        do {
+            let list = try managedContext.fetch(fetchRequest)
+            
+            for item in list {
+                managedContext.delete(item as! NSManagedObject)
+            }
+            
+            do {
+                try managedContext.save()
+            }
+            catch {
+                print(error)
+            }
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        saveSuccess(found: false)
+        setGuess(resetLife: false)
+    }
 }
-
-

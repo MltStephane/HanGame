@@ -13,10 +13,11 @@ class ListController: UIViewController {
     var listGuesses = [Guess]()
     
     @IBOutlet weak var tableController: UITableView!
+    @IBOutlet weak var scoreController: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        listGuesses = Guess.getSuccessGuess()
+        listGuesses = Guess.getGuesses()
+        scoreController.text = "Score : " + String(Guess.getSuccessGuess())
         tableController.register(UINib(nibName: "ScoreCell",bundle: nil), forCellReuseIdentifier: "ScoreCell")
     }
 }
@@ -31,6 +32,12 @@ extension ListController : UITableViewDataSource{
         
         cell.nameController.text = listGuesses[indexPath.row].name
         cell.webViewController.loadRequest(URLRequest(url: URL(string: listGuesses[indexPath.row].image)!))
+        if listGuesses[indexPath.row].found {
+            cell.foundController.image = UIImage(named: "check")!
+        }
+        else {
+            cell.foundController.image = UIImage(named: "cross")!
+        }
         
         return cell
     }
